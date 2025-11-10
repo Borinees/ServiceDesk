@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class TecnicoResquestDTO extends UsuarioRequestDTO {
+public class TecnicoRequestDTO extends UsuarioRequestDTO {
 
     private Especialidade especialidade;
     private Setor setor;

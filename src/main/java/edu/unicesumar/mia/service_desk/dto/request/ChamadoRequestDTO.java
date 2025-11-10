@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ChamadoResquestDTO {
+public class ChamadoRequestDTO {
 
     private String titulo;
     private String descricao;

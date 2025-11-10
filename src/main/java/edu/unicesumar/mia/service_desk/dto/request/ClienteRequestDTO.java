@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ClienteResquestDTO extends UsuarioRequestDTO{
+public class ClienteRequestDTO extends UsuarioRequestDTO{
 
     @Size(max = 100)
     private String empresa;
