@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoriaResponseDTO {
+public class UsuarioResumoDTO {
     private Integer id;
     private String nome;
-    private String descricao;
+    private String email;
 }

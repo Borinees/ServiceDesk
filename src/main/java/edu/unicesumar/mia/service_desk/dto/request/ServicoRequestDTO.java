@@ -1,4 +1,4 @@
-package edu.unicesumar.mia.service_desk.dto.response;
+package edu.unicesumar.mia.service_desk.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoriaResponseDTO {
-    private Integer id;
+public class ServicoRequestDTO {
     private String nome;
     private String descricao;
+    private String categoriaId;
+    private Integer slaHoras;
 }

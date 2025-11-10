@@ -1,4 +1,4 @@
-package edu.unicesumar.mia.service_desk.dto.response;
+package edu.unicesumar.mia.service_desk.dto.request;
 
 import edu.unicesumar.mia.service_desk.bean.enums.Status;
 import lombok.AllArgsConstructor;
@@ -6,15 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MudancaStatusResponseDTO {
-    private Integer id;
-    private Status statusAnterior;
+public class MudancaStatusRequestDTO {
+    private Integer chamadoId;
     private Status statusNovo;
-    private LocalDateTime dataMudanca;
 }
