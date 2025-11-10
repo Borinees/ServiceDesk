@@ -29,7 +29,6 @@ public class Servico {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", referencedColumnName = "id_categoria")
-    @ToString.Exclude
     private Categoria categoria;
 
     @Column(name = "sla_horas")

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,4 +18,7 @@ public class TecnicoResponseDTO {
     private String email;
     private Especialidade especialidade;
     private boolean disponivel;
+    private String tipoUsuario;
+    private LocalDateTime criadoEm;
+    private LocalDateTime atualizadoEm;
 }

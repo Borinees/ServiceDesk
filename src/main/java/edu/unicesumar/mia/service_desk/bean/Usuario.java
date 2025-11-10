@@ -21,6 +21,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     @EqualsAndHashCode.Include
+    @ToString.Include
     private Integer id;
 
     @Column(nullable = false, length = 100)
@@ -32,7 +33,6 @@ public class Usuario {
     private String email;
 
     @Column(nullable = false, length = 100)
-    @ToString.Exclude
     private String senha;
 
     @Enumerated(EnumType.STRING)
@@ -40,7 +40,7 @@ public class Usuario {
     @ToString.Include
     private TipoUsuario tipoUsuario;
 
-    @Column(name = "criado_em", nullable = false)
+    @Column(name = "criado_em", nullable = false, columnDefinition = "TIMESTAMP DEFAULT NOW()")
     private LocalDateTime criadoEm = LocalDateTime.now();
 
     @Column(name = "atualizado_em")

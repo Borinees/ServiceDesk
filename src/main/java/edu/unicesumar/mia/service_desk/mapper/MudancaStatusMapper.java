@@ -7,11 +7,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(config = MapperConfig.class)
+@Mapper(config = MapperConfig.class, uses = ChamadoMapper.class)
 public interface MudancaStatusMapper {
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "dataMudanca", expression = "java.(java.time.LocalDateTime.now())")
+    @Mapping(target = "dataMudanca", expression = "java(java.time.LocalDateTime.now())")
+    @Mapping(target = "chamado", ignore = true)
     MudancaStatus toEntity(MudancaStatusRequestDTO dto);
 
     MudancaStatusResponseDTO toResponse(MudancaStatus entity);

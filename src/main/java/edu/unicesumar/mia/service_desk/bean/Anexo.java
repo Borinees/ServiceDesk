@@ -33,7 +33,7 @@ public class Anexo {
     @Column(name = "caminho_arquivo", columnDefinition = "TEXT")
     private String caminhoArquivo;
 
-    @Column(name = "data_envio", columnDefinition = "TIMESTAMP DEFAUL NOW()")
+    @Column(name = "data_envio", columnDefinition = "TIMESTAMP DEFAULT NOW()")
     @ToString.Include
     private LocalDateTime dataEnvio = LocalDateTime.now();
 }

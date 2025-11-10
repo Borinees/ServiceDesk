@@ -23,12 +23,10 @@ public class Interacao {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_chamado", nullable = false)
-    @ToString.Exclude
     private Chamado chamado;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    @ToString.Exclude
     private Usuario usuario;
 
     @Column(columnDefinition = "TEXT", nullable = false)

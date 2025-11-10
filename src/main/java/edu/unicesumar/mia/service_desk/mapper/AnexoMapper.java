@@ -7,11 +7,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(config = MapperConfig.class)
+@Mapper(config = MapperConfig.class, uses = {UsuarioMapper.class, ChamadoMapper.class})
 public interface AnexoMapper {
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "dataEnvio", expression = "java(java.time.LocalDateTim.now())")
+    @Mapping(target = "dataEnvio", expression = "java(java.time.LocalDateTime.now())")
+    @Mapping(target = "usuario", ignore = true)
+    @Mapping(target = "chamado", ignore = true)
     Anexo toEntity(AnexoRequestDTO dto);
 
     AnexoResponseDTO toResponse(Anexo entity);

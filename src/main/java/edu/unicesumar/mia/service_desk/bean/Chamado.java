@@ -34,17 +34,14 @@ public class Chamado {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ToString.Exclude
     private Cliente cliente;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "id_tecnico", referencedColumnName = "id_tecnico")
-    @ToString.Exclude
     private Tecnico tecnico;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-    @ToString.Exclude
     private Categoria categoria;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
@@ -52,7 +49,6 @@ public class Chamado {
     private Servico servico;
 
     @OneToMany(mappedBy = "chamado", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
     private List<Interacao> interacoes;
 
     @Enumerated(EnumType.STRING)

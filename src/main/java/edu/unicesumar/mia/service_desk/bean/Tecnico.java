@@ -34,6 +34,5 @@ public class Tecnico extends Usuario {
     private Boolean disponivel = true;
 
     @OneToMany(mappedBy = "tecnico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude
     private List<Chamado> chamadosAtivos;
 }

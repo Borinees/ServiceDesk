@@ -13,4 +13,5 @@ public class UsuarioResumoDTO {
     private Integer id;
     private String nome;
     private String email;
+    private String tipoUsuario;
 }
