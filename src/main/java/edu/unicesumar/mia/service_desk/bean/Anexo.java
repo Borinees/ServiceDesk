@@ -8,12 +8,12 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "anexo", schema = "service_desk")
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table(name = "anexo", schema = "service_desk")
 public class Anexo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,12 +36,4 @@ public class Anexo {
     @Column(name = "data_envio", columnDefinition = "TIMESTAMP DEFAUL NOW()")
     @ToString.Include
     private LocalDateTime dataEnvio = LocalDateTime.now();
-
-    public Anexo() {}
-
-    public Anexo(Chamado chamado, String nomeArquivo, String caminhoArquivo) {
-        this.chamado = chamado;
-        this.nomeArquivo = nomeArquivo;
-        this.caminhoArquivo = caminhoArquivo;
-    }
 }
