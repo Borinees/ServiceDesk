@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestão de Usuários - HelpDesk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar">
+    <div class="sidebar-brand">Empresa XYZ</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="active">Gestão de Usuários</li>
+        <li><a href="chamados_list.html">Chamados</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <header class="topbar">
+    <h2>Gestão de Usuários</h2>
+    <div class="top-actions"><button class="btn primary">Adicionar Novo Usuário</button></div>
+  </header>
+
+  <main class="main-area">
+    <section class="content">
+      <div class="panel">
+        <div class="search-row">
+          <input class="input" placeholder="Buscar por nome, email ou ID..." />
+          <button class="btn outline">Filtros</button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nome do Usuário</th>
+              <th>Email</th>
+              <th>Função</th>
+              <th>Departamento</th>
+              <th>Status</th>
+              <th>Último Login</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>João Silva</td>
+              <td>joao.silva@empresa.com</td>
+              <td>Administrador</td>
+              <td>TI</td>
+              <td><span class="tag green">Ativo</span></td>
+              <td>2023-10-25 14:30</td>
+              <td class="actions">✎ 🗑</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Maria Oliveira</td>
+              <td>maria.o@empresa.com</td>
+              <td>Editor</td>
+              <td>Marketing</td>
+              <td><span class="tag green">Ativo</span></td>
+              <td>2023-10-25 09:15</td>
+              <td class="actions">✎ 🗑</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Pedro Souza</td>
+              <td>pedro.s@empresa.com</td>
+              <td>Leitor</td>
+              <td>Vendas</td>
+              <td><span class="tag red">Inativo</span></td>
+              <td>2023-09-10 11:00</td>
+              <td class="actions">✎ 🗑</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="table-footer">
+          <div>Itens por página: <select><option>10</option></select></div>
+          <div class="muted small">1-5 de 23 Usuários</div>
+          <div class="pagination">&lt; Anterior 1 2 3 Próximo &gt;</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

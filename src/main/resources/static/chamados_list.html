@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chamados - HelpDesk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar">
+    <div class="sidebar-brand">Empresa XYZ</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="usuarios.html">Gestão de Usuários</a></li>
+        <li class="active">Chamados</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <header class="topbar">
+    <h2>Chamados</h2>
+    <div class="top-actions"><button class="btn primary">Novo Chamado</button></div>
+  </header>
+
+  <main class="main-area">
+    <section class="panel filters">
+      <div class="filter-row">
+        <input class="input" placeholder="Buscar Chamado..." />
+        <select class="input"><option>Status: Todos</option></select>
+        <select class="input"><option>Prioridade: Todas</option></select>
+        <select class="input"><option>Atribuído a: Qualquer</option></select>
+        <input class="input small" placeholder="mm/dd/yyyy" />
+        <input class="input small" placeholder="mm/dd/yyyy" />
+        <button class="btn outline">Exportar CSV</button>
+        <button class="btn primary">Novo Chamado</button>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID do Chamado</th>
+            <th>Assunto</th>
+            <th>Status</th>
+            <th>Prioridade</th>
+            <th>Atribuído a</th>
+            <th>Criado em</th>
+            <th>Última Atualização</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#2023001</td>
+            <td>Problema de conexão com a rede</td>
+            <td><span class="pill blue">Em Andamento</span></td>
+            <td><span class="pill red">Alta</span></td>
+            <td>Maria Oliveira</td>
+            <td>2023-10-25 10:30</td>
+            <td>2023-10-27 14:15</td>
+            <td class="actions">🔍 ✎ 🗑</td>
+          </tr>
+          <tr>
+            <td>#2023002</td>
+            <td>Solicitação de instalação de software X</td>
+            <td><span class="pill yellow">Aberto</span></td>
+            <td><span class="pill orange">Média</span></td>
+            <td>Equipe TI</td>
+            <td>2023-10-25 11:00</td>
+            <td>2023-10-25 11:00</td>
+            <td class="actions">🔍 ✎ 🗑</td>
+          </tr>
+          <tr>
+            <td>#2023003</td>
+            <td>Impressora do setor financeiro não imprime</td>
+            <td><span class="pill green">Resolvido</span></td>
+            <td><span class="pill gray">Baixa</span></td>
+            <td>João Silva</td>
+            <td>2023-10-25 09:00</td>
+            <td>2023-10-25 16:00</td>
+            <td class="actions">🔍 ✎ 🗑</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
