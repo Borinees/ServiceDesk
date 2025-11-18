@@ -4,6 +4,7 @@ import edu.unicesumar.mia.service_desk.bean.Usuario;
 import edu.unicesumar.mia.service_desk.dto.response.UsuarioResponseDTO;
 import edu.unicesumar.mia.service_desk.mapper.UsuarioMapper;
 import edu.unicesumar.mia.service_desk.repository.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +15,12 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final UsuarioMapper usuarioMapper;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper) {
+    public UsuarioService(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.usuarioMapper = usuarioMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UsuarioResponseDTO> listarTodos() {
@@ -38,5 +41,11 @@ public class UsuarioService {
             throw new RuntimeException("Usuário não encontrado");
         }
         usuarioRepository.deleteById(id);
+    }
+
+    public UsuarioResponseDTO criar(Usuario usuario) {
+        usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        Usuario salvo = usuarioRepository.save(usuario);
+        return usuarioMapper.toResponse(salvo);
     }
 }
