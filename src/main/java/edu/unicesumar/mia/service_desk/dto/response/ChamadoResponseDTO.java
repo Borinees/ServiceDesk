@@ -1,5 +1,6 @@
 package edu.unicesumar.mia.service_desk.dto.response;
 
+import edu.unicesumar.mia.service_desk.bean.MudancaStatus;
 import edu.unicesumar.mia.service_desk.bean.enums.NivelPrioridade;
 import edu.unicesumar.mia.service_desk.bean.enums.Status;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class ChamadoResponseDTO {
 
     private NivelPrioridade prioridade;
     private Status status;
+    private MudancaStatus mudancaStatus;
 
     private LocalDateTime dataAbertura;
     private LocalDateTime dataFechamento;

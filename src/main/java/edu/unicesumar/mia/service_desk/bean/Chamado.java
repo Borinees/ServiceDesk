@@ -33,11 +33,11 @@ public class Chamado {
     private String descricao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_usuario")
     private Cliente cliente;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "id_tecnico", referencedColumnName = "id_tecnico")
+    @JoinColumn(name = "id_tecnico", referencedColumnName = "id_usuario")
     private Tecnico tecnico;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)

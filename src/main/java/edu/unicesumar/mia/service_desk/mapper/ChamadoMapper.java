@@ -13,7 +13,6 @@ public interface ChamadoMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "criadoEm", expression = "java(java.time.LocalDateTime.now())")
     @Mapping(target = "interacoes", ignore = true)
-    @Mapping(target = "mudancasStatus", ignore = true)
     Chamado toEntity(ChamadoRequestDTO dto);
 
     ChamadoResponseDTO toResponse(Chamado entity);

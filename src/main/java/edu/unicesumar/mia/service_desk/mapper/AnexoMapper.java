@@ -12,7 +12,6 @@ public interface AnexoMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "dataEnvio", expression = "java(java.time.LocalDateTime.now())")
-    @Mapping(target = "usuario", ignore = true)
     @Mapping(target = "chamado", ignore = true)
     Anexo toEntity(AnexoRequestDTO dto);
 
