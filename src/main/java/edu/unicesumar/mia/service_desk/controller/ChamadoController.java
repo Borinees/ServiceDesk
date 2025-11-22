@@ -5,6 +5,7 @@ import edu.unicesumar.mia.service_desk.dto.response.ChamadoResponseDTO;
 import edu.unicesumar.mia.service_desk.service.ChamadoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -29,8 +30,10 @@ public class ChamadoController {
     }
 
     @PostMapping
-    public ResponseEntity<ChamadoResponseDTO> criar(@RequestBody ChamadoRequestDTO dto) {
-        return ResponseEntity.ok(chamadoService.criar(dto));
+    public ResponseEntity<ChamadoResponseDTO> criar(
+            @RequestPart("chamado") ChamadoRequestDTO dto,
+            @RequestPart("anexos") MultipartFile[] anexos) {
+        return ResponseEntity.ok(chamadoService.criar(dto, List.of(anexos)));
     }
 
     @PutMapping("/{id}")

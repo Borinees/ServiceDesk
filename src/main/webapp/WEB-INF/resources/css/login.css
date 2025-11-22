@@ -1,0 +1,12 @@
+.login-body{display:flex;align-items:center;justify-content:center;height:100vh}
+.login-wrap{width:420px}
+.login-card{background:var(--card);padding:34px;border-radius:12px;box-shadow:0 6px 24px rgba(16,24,40,0.06);text-align:left}
+.brand{margin:0 0 6px 0}
+.subtitle{color:var(--muted);margin-bottom:18px}
+.field-label{font-size:13px;margin-top:10px;color:#333}
+.input{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef;margin-top:6px}
+.textarea{min-height:120px;padding:12px;border-radius:8px;border:1px solid #e6e9ef;background:#fff}
+.link-right{display:block;text-align:right;margin-top:8px;color:var(--accent);text-decoration:none}
+.divider{text-align:center;padding:10px 0;color:var(--muted)}
+.center{text-align:center}
+.small{font-size:13px}

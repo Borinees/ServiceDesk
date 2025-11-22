@@ -1,0 +1,6 @@
+.two-column{display:flex;gap:20px;margin-left:0}
+.content-left{flex:1;margin-left:220px}
+.sidebar-right{width:320px;position:fixed;right:36px;top:96px}
+.panel.small{margin-bottom:14px}
+.textarea.small{background:#f8fafc;padding:10px;border-radius:6px}
+.attachments li{list-style:none}

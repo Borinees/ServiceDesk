@@ -48,4 +48,10 @@ public class UsuarioService {
         Usuario salvo = usuarioRepository.save(usuario);
         return usuarioMapper.toResponse(salvo);
     }
+
+    public UsuarioResponseDTO buscarPorEmail(String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
+        return usuarioMapper.toResponse(usuario);
+    }
 }

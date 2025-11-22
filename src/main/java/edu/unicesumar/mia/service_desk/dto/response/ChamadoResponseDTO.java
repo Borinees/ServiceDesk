@@ -23,7 +23,6 @@ public class ChamadoResponseDTO {
 
     private NivelPrioridade prioridade;
     private Status status;
-    private MudancaStatus mudancaStatus;
 
     private LocalDateTime dataAbertura;
     private LocalDateTime dataFechamento;
@@ -36,4 +35,8 @@ public class ChamadoResponseDTO {
     private ServicoResponseDTO servico;
 
     private List<InteracaoResponseDTO> interacoes;
+
+    private List<AnexoResponseDTO> anexos;
+
+    private List<MudancaStatusResponseDTO> historico;
 }
