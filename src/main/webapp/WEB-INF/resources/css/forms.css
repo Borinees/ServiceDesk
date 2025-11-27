@@ -1,0 +1,57 @@
+.form-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input, .textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+    font-size: 14px;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.radio-row {
+    display: flex;
+    gap: 16px;
+    margin: 8px 0;
+}
+
+.upload-box {
+    border: 1px dashed #e6e9ef;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+}
+
+.attachments-list {
+    margin-top: 10px;
+}
+
+.attached {
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remove {
+    cursor: pointer;
+    color: #ef4444;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}

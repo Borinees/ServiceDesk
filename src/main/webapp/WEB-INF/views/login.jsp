@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,9 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/login.css">
-
 </head>
+
 <body class="login-body">
 
 <main class="login-wrap">
@@ -19,7 +21,17 @@
         <h1 class="brand">HelpDesk</h1>
         <p class="subtitle">Bem-vindo de volta!<br>Faça login para continuar.</p>
 
+        <!-- MENSAGEM DE ERRO (opcional) -->
+        <c:if test="${not empty param.error}">
+            <div class="alert danger">
+                <c:out value="Email ou senha incorretos."/>
+            </div>
+        </c:if>
+
         <form method="post" action="${pageContext.request.contextPath}/login">
+
+            <!-- CSRF OBRIGATÓRIO -->
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
             <label class="field-label">Email</label>
             <input class="input" name="username" type="email"

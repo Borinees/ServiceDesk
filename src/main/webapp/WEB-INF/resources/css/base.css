@@ -1,59 +1,221 @@
-:root{
-  --bg:#f6f7f9;
-  --sidebar:#172033;
-  --accent:#2366f0;
-  --muted:#6b7280;
-  --card:#ffffff;
-  --pill-green:#daf5e8;
-  --pill-red:#fdecea;
+:root {
+    --bg: #f6f7f9;
+    --sidebar: #172033;
+    --accent: #2366f0;
+    --muted: #6b7280;
+    --card: #ffffff;
+
+    --pill-green: #ecfdf5;
+    --pill-red: #fff1f2;
+    --pill-yellow: #fffbeb;
+    --pill-blue: #eef2ff;
+    --pill-gray: #f3f4f6;
 }
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#111}
 
-/* App layout */
-.app-body{display:flex}
-.sidebar{width:220px;background:var(--sidebar);color:#fff;min-height:100vh;padding:24px 12px;position:fixed;left:0;top:0}
-.sidebar .sidebar-brand{font-weight:700;margin-bottom:18px}
-.sidebar nav ul{list-style:none;padding:0;margin:0}
-.sidebar nav li{padding:12px 10px;border-radius:6px;margin-bottom:6px;color:#d1d5db}
-.sidebar nav li.active{background:#0f1724;color:#fff}
-.sidebar-footer{position:absolute;bottom:18px;left:24px;font-size:13px;color:#94a3b8}
-.topbar{height:64px;display:flex;align-items:center;justify-content:space-between;background:transparent;padding:16px 32px;margin-left:220px}
-.main-area{flex:1;padding:28px 36px;margin-left:220px}
+* {
+    box-sizing: border-box;
+}
 
-/* Panels */
-.panel{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 1px 0 rgba(16,24,40,0.03)}
-.small{font-size:13px}
-.muted{color:var(--muted)}
-.field{margin-bottom:12px}
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: #111;
+}
 
-/* Buttons */
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;border:1px solid #e6e9ef;background:white;cursor:pointer}
-.btn.full{width:100%}
-.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn.outline{background:white;border:1px solid #e6e9ef}
-.btn.dark{background:#111;color:#fff}
-.btn.danger{background:#dc2626;color:#fff}
+/* ======================
+   MAIN LAYOUT
+====================== */
+.app-body {
+    display: flex;
+}
 
-/* Tables */
-.table{width:100%;border-collapse:collapse}
-.table thead th{background:#f3f4f6;padding:16px;text-align:left;color:#6b7280}
-.table tbody td{padding:18px;border-top:1px solid #f1f5f9;background:var(--card)}
-.table tbody tr td.actions{text-align:right}
-.table-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px}
-.pagination{color:var(--muted)}
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: var(--sidebar);
+    color: #fff;
+    min-height: 100vh;
+    padding: 24px 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
-/* Tags & pills */
-.tag{display:inline-block;padding:6px 10px;border-radius:6px;font-size:13px}
-.tag.green{background:#d1fae5;color:#065f46}
-.tag.orange{background:#fff7ed;color:#7c2d12}
-.pill{display:inline-block;padding:8px 12px;border-radius:8px;font-weight:600}
-.pill.blue{background:#eef2ff;color:#3730a3}
-.pill.red{background:#fff1f2;color:#991b1b}
-.pill.yellow{background:#fffbeb;color:#92400e}
-.pill.green{background:#ecfdf5;color:#065f46}
-.pill.gray{background:#f3f4f6;color:#6b7280}
+.sidebar .sidebar-brand {
+    font-weight: 700;
+    margin-bottom: 18px;
+}
 
-/* helpers */
-.required{color:#ef4444}
-.actions{width:120px;text-align:right}
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav li {
+    padding: 12px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    color: #d1d5db;
+    cursor: pointer;
+}
+
+.sidebar nav li a {
+    color: #d1d5db;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar nav li.active,
+.sidebar nav li:hover {
+    background: #0f1724;
+    color: #fff;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 18px;
+    left: 24px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* TOPBAR */
+.topbar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 220px;
+    padding: 16px 32px;
+}
+
+/* MAIN AREA */
+.main-area {
+    flex: 1;
+    padding: 28px 36px;
+    margin-left: 220px;
+}
+
+/* ======================
+   PANELS
+====================== */
+.panel {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(16, 24, 40, 0.03);
+}
+
+.small {
+    font-size: 13px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* ======================
+   BUTONS
+====================== */
+.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn.full {
+    width: 100%;
+}
+
+.btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.btn.outline {
+    background: white;
+}
+
+.btn.dark {
+    background: #111;
+    color: #fff;
+}
+
+.btn.danger {
+    background: #dc2626;
+    color: #fff;
+}
+
+/* ======================
+   TABLES
+====================== */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background: #f3f4f6;
+    padding: 16px;
+    text-align: left;
+    color: #6b7280;
+}
+
+.table tbody td {
+    padding: 18px;
+    border-top: 1px solid #f1f5f9;
+    background: var(--card);
+}
+
+.actions {
+    width: 120px;
+    text-align: right;
+}
+
+/* TABLE FOOTER */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+}
+
+/* ======================
+   TAGS / PILLS
+====================== */
+.tag {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.tag.green { background: #d1fae5; color: #065f46; }
+.tag.orange { background: #fff7ed; color: #7c2d12; }
+
+.pill {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.pill.blue { background: var(--pill-blue); color: #3730a3; }
+.pill.red { background: var(--pill-red); color: #991b1b; }
+.pill.yellow { background: var(--pill-yellow); color: #92400e; }
+.pill.green { background: var(--pill-green); color: #065f46; }
+.pill.gray { background: var(--pill-gray); color: #6b7280; }
+
+/* REQUERIDO */
+.required {
+    color: #ef4444;
+}

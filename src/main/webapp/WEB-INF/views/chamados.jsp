@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,10 +10,10 @@
     <title>Chamados - HelpDesk</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/chamado.css">
-    <link rel="stylesheet" href="/css/form.css">
-
 </head>
+
 <body class="app-body">
 
 <!-- SIDEBAR -->
@@ -35,17 +36,21 @@
     </div>
 </header>
 
-<!-- FILTROS -->
 <main class="main-area">
+
+    <!-- FILTROS -->
     <section class="panel filters">
         <form method="get" action="/chamados" class="filter-row">
+
             <input class="input" name="busca" placeholder="Buscar Chamado..." />
+
             <select class="input" name="status">
                 <option value="">Status: Todos</option>
                 <option value="ABERTO">Aberto</option>
                 <option value="EM_ANDAMENTO">Em Andamento</option>
                 <option value="FECHADO">Fechado</option>
             </select>
+
             <select class="input" name="prioridade">
                 <option value="">Prioridade: Todas</option>
                 <option value="BAIXA">Baixa</option>
@@ -53,19 +58,22 @@
                 <option value="ALTA">Alta</option>
                 <option value="URGENTE">Urgente</option>
             </select>
+
             <select class="input" name="tecnico">
                 <option value="">Atribuído a: Qualquer</option>
                 <c:forEach var="t" items="${tecnicos}">
                     <option value="${t.id}">${t.nome}</option>
                 </c:forEach>
             </select>
+
             <input class="input small" type="date" name="inicio" />
             <input class="input small" type="date" name="fim" />
+
             <button type="submit" class="btn outline">Filtrar</button>
         </form>
     </section>
 
-    <!-- TABELA DE CHAMADOS -->
+    <!-- TABELA -->
     <section class="panel table-panel">
         <table class="table">
             <thead>
@@ -80,48 +88,70 @@
                 <th>Ações</th>
             </tr>
             </thead>
+
             <tbody>
             <c:forEach var="chamado" items="${chamados}">
                 <tr>
                     <td>#${chamado.id}</td>
                     <td>${chamado.titulo}</td>
+
                     <td>
-                            <span class="pill
-                                <c:choose>
-                                    <c:when test="${chamado.status == 'ABERTO'}">yellow</c:when>
-                        <c:when test="${chamado.status == 'EM_ANDAMENTO'}">blue</c:when>
-                        <c:when test="${chamado.status == 'FECHADO'}">green</c:when>
-                        <c:otherwise>gray</c:otherwise>
-                        </c:choose>
-                        ">
-                        ${chamado.status}
+                        <span class="pill
+                            ${chamado.status == 'ABERTO' ? 'yellow' :
+                              chamado.status == 'EM_ANDAMENTO' ? 'blue' :
+                              chamado.status == 'FECHADO' ? 'green' : 'gray'}">
+                            ${chamado.status}
                         </span>
                     </td>
+
                     <td>
-                            <span class="pill
-                                <c:choose>
-                                    <c:when test="${chamado.prioridade == 'BAIXA'}">gray</c:when>
-                        <c:when test="${chamado.prioridade == 'MEDIA'}">orange</c:when>
-                        <c:when test="${chamado.prioridade == 'ALTA'}">red</c:when>
-                        <c:when test="${chamado.prioridade == 'URGENTE'}">purple</c:when>
-                        </c:choose>
-                        ">
-                        ${chamado.prioridade}
+                        <span class="pill
+                            ${chamado.prioridade == 'BAIXA' ? 'gray' :
+                              chamado.prioridade == 'MEDIA' ? 'orange' :
+                              chamado.prioridade == 'ALTA' ? 'red' :
+                              chamado.prioridade == 'URGENTE' ? 'purple' : ''}">
+                            ${chamado.prioridade}
                         </span>
                     </td>
-                    <td>${chamado.tecnico != null ? chamado.tecnico.nome : 'Não atribuído'}</td>
-                    <td>${chamado.dataAbertura}</td>
-                    <td>${chamado.atualizadoEm}</td>
+
+                    <td>
+                        <c:choose>
+                            <c:when test="${chamado.tecnico != null}">${chamado.tecnico.nome}</c:when>
+                            <c:otherwise>Não atribuído</c:otherwise>
+                        </c:choose>
+                    </td>
+
+                    <td>
+                        <fmt:formatDate value="${chamado.dataAbertura}" pattern="dd/MM/yyyy HH:mm" />
+                    </td>
+
+                    <td>
+                        <fmt:formatDate value="${chamado.atualizadoEm}" pattern="dd/MM/yyyy HH:mm" />
+                    </td>
+
                     <td class="actions">
+
+                        <!-- VER -->
                         <a href="/chamados/${chamado.id}">🔍</a>
+
+                        <!-- EDITAR -->
                         <a href="/chamados/${chamado.id}/editar">✎</a>
-                        <a href="/chamados/${chamado.id}/delete">🗑</a>
+
+                        <!-- DELETE COM CSRF -->
+                        <form method="post" action="/chamados/${chamado.id}/delete" style="display:inline;">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            <button class="icon-button" onclick="return confirm('Excluir chamado?')">🗑</button>
+                        </form>
+
                     </td>
                 </tr>
             </c:forEach>
             </tbody>
+
         </table>
     </section>
+
 </main>
+
 </body>
 </html>

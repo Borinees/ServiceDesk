@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,8 +11,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/login.css">
-
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 
 <body class="app-body">
@@ -63,7 +65,7 @@
 
         <div class="card">
             <h4>Concluídos (7 dias)</h4>
-            <div class="big-number">${concluidosSemana != null ? concluídosSemana : 0}</div>
+            <div class="big-number">${concluidosSemana != null ? concluidosSemana : 0}</div>
         </div>
 
         <div class="card">

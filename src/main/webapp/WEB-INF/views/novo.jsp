@@ -9,8 +9,8 @@
   <title>Abrir Novo Chamado - HelpDesk</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/forms.css">
   <link rel="stylesheet" href="/css/login.css">
-
 </head>
 
 <body class="app-body form-page">
@@ -36,6 +36,9 @@
 
       <!-- FORM PARA CRIAR CHAMADO -->
       <form class="panel form-panel" method="post" action="/chamados/novo" enctype="multipart/form-data">
+
+        <!-- CSRF PROTECTION -->
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
         <!-- TÍTULO -->
         <label>Assunto do Chamado <span class="required">***</span></label>
