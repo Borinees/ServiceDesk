@@ -13,7 +13,7 @@
 
     <groupId>edu.unicesumar.mia</groupId>
     <artifactId>service-desk</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>service-desk</name>
     <description>Sistema de service desk para suporte interno</description>
@@ -35,37 +35,10 @@
             <version>42.7.3</version>
         </dependency>
 
-        <!-- Tomcat -->
+        <!-- Thymeleaf -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.'0.1</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Jasper (necessário para JSP) -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-        </dependency>
-
-        <!-- JSTL (Jakarta EE 10 para Spring Boot 3) -->
-        <dependency>
-            <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-            <version>3.0.1</version>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
         <!-- Spring Boot -->
@@ -153,15 +126,6 @@
 
     <build>
         <plugins>
-
-            <!-- Empacotamento WAR -->
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
 
             <!-- Ignorar testes -->
             <plugin>
