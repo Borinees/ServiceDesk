@@ -32,7 +32,7 @@ public class User implements UserDetails {
     private Role role;
 
     @Column(nullable = false)
-    private Boolean active = true;
+    private boolean active = true;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
